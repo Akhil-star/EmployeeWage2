@@ -14,10 +14,11 @@ public class App
 	
     public static void main( String[] args )
     {
-        	
+      computeEmpWage();  
+    }	
+    public static int computeEmpWage() {
     	int empHrs=0;
     	int totalHrs=0;
-    	int totalWage=0;
     	int totalWorkingDays=0;
     	
     	while(totalHrs<=MAX_HRS && totalWorkingDays<NUM_DAYS) {
@@ -37,8 +38,8 @@ public class App
     	totalHrs += empHrs;
     	System.out.println("Days: " +totalWorkingDays+ " Emp hr:" +empHrs);
     } 
-    	totalWage=totalHrs*EMP_RATE_HOUR;
+    	int totalWage=totalHrs*EMP_RATE_HOUR;
 	    System.out.println("Total Emp Wage: " +totalWage);
-
-}
+        return totalWage;
+   }
 }
