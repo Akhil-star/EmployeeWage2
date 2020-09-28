@@ -18,12 +18,12 @@ public class App
       computeEmpWage("xyz",5,10,10);
       computeEmpWage("cg",10,6,20);
     }	
-    public static int computeEmpWage(String Comp_Name,int EMP_RATE_HOUR,int NUM_WDAYS,int MAX_HRS_MONTH) {
+    public static int computeEmpWage(String compName,int empRateHr,int noOfWorkingDays,int maxHrsMonth) {
     	int empHrs=0;
     	int totalHrs=0;
     	int totalWorkingDays=0;
     	
-    	while(totalHrs<=MAX_HRS_MONTH && totalWorkingDays<NUM_WDAYS) {
+    	while(totalHrs<=maxHrsMonth && totalWorkingDays<noOfWorkingDays) {
     		totalWorkingDays++;
     	int empCheck =(int) Math.floor(Math.random() *10)%3;
     	switch(empCheck) {
@@ -40,8 +40,8 @@ public class App
     	totalHrs += empHrs;
     	System.out.println("Days: " +totalWorkingDays+ " Emp hr:" +empHrs);
       } 
-    	int totalWage=totalHrs*EMP_RATE_HOUR;
-    	System.out.println("Company Name : "+Comp_Name);
+    	int totalWage=totalHrs*empRateHr;
+    	System.out.println("Company Name : "+compName);
 	    System.out.println("Total Emp Wage : " +totalWage);
         return totalWage;
        
