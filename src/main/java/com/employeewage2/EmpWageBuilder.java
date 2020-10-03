@@ -1,6 +1,5 @@
 package com.employeewage2;
 
-import java.util.ArrayList;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,10 +7,10 @@ import java.util.Scanner;
 
 public class EmpWageBuilder {
 	
-	static final int present_fulltime = 1;
-	static final int present_parttime = 2;
+	static final int IS_FULLTIME = 1;
+	static final int IS_PARTTIME = 2;
 	
-	private ArrayList<CompanyEmpWage> obj = new ArrayList<CompanyEmpWage>();
+	private ArrayList<CompanyEmpWage> arrayList = new ArrayList<CompanyEmpWage>();
 	
 
 	public static CompanyEmpWage createObject(String name, int totaldays, int totalhours, int perhourwage) {
@@ -25,14 +24,14 @@ public class EmpWageBuilder {
 		int work_hours = 0;	
 		int total_hours = 0, total_days = 0;	
 		
-		while (total_days < obj.getTotal_working_days() && total_hours <= obj.getTotal_working_hours())
+		while (total_days < obj.getTotalWorkingDays() && total_hours <= obj.getTotalWorkingHours())
 		{
 			int checkEmp = (int) (Math.random() * 10) % 3;
 			switch (checkEmp){
-				case present_fulltime:
+				case IS_FULLTIME:
 					work_hours = 8;
 					break;
-				case present_parttime:
+				case IS_PARTTIME:
 					work_hours = 4;
 					break;
 				default:
@@ -45,8 +44,8 @@ public class EmpWageBuilder {
 			System.out.println("Current Day Hours: " + work_hours+ "   Total hours: " + total_hours);
 		}
 		
-		obj.setTotal_wages(total_hours * obj.getPerhour_wage());
-		System.out.println("The total monthly wages of " + obj.getCompany_name() + " are " + obj.getTotal_wages());		
+		obj.setTotalWages(total_hours * obj.getPerHourWage());
+		System.out.println("The total monthly wages of " + obj.getCompanyName() + " are " + obj.getTotalWages());		
 	}
 	
 	
@@ -61,15 +60,15 @@ public class EmpWageBuilder {
 				System.out.println("Enter the company's name:");
 				String name = sc.next();
 				System.out.println("Enter the total number of working days:");
-				int t_days = sc.nextInt();
+				int totalDays = sc.nextInt();
 				System.out.println("Enter the total number of working hours:");
-				int t_hrs = sc.nextInt();
+				int totalHrs = sc.nextInt();
 				System.out.println("Enter the wage per hour:");
-				int ph_wage = sc.nextInt();
+				int perHrWage = sc.nextInt();
 				
-				CompanyEmpWage cew = createObject(name,t_days,t_hrs,ph_wage);
-				ewc.calculateWage(cew);
-				ewc.obj.add(cew);
+				CompanyEmpWage obj = createObject(name,totalDays,totalHrs,perHrWage);
+				ewc.calculateWage(obj);
+				ewc.arrayList.add(obj);
 			
 		}
 		sc.close();
