@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class EmpWageBuilder implements EmpWageInterface {
 
-	static final int present_fulltime = 1;
-	static final int present_parttime = 2;
+	static final int IS_FULLTIME = 1;
+	static final int IS_PARTTIME = 2;
 
 	private ArrayList<CompanyEmpWage> arrayList = new ArrayList<CompanyEmpWage>();
 
@@ -22,10 +22,10 @@ public class EmpWageBuilder implements EmpWageInterface {
 		while (totalDays < obj.getTotalWorkingDays() && totalHours <= obj.getTotalWorkingHours()) {
 			int checkEmp = (int) (Math.random() * 10) % 3;
 			switch (checkEmp) {
-			case present_fulltime:
+			case IS_FULLTIME:
 				workHours = 8;
 				break;
-			case present_parttime:
+			case IS_PARTTIME:
 				workHours = 4;
 				break;
 			default:
