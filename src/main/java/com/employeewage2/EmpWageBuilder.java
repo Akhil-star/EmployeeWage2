@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class EmpWageBuilder implements EmpWageInterface {
 
-	static final int present_fulltime = 1;
-	static final int present_parttime = 2;
+	static final int IS_FULLTIME = 1;
+	static final int IS_PARTTIME = 2;
 
 	private ArrayList<CompanyEmpWage> arrayList = new ArrayList<CompanyEmpWage>();
 
@@ -22,10 +22,10 @@ public class EmpWageBuilder implements EmpWageInterface {
 		while (totalDays < obj.getTotalWorkingDays() && totalHours <= obj.getTotalWorkingHours()) {
 			int checkEmp = (int) (Math.random() * 10) % 3;
 			switch (checkEmp) {
-			case present_fulltime:
+			case IS_FULLTIME:
 				workHours = 8;
 				break;
-			case present_parttime:
+			case IS_PARTTIME:
 				workHours = 4;
 				break;
 			default:
@@ -37,10 +37,16 @@ public class EmpWageBuilder implements EmpWageInterface {
 
 			System.out.println("Current Day Hours: " + workHours + "   Total hours: " + totalHours);
 			obj.setDailyWage(workHours * obj.getPerHourWage());
-			System.out.println("The Daily wage : "+obj.getDailyWage());
+			System.out.println("The Daily wage : " + obj.getDailyWage());
 		}
 		obj.setTotalWages(totalHours * obj.getPerHourWage());
 		System.out.println("The total monthly wages of " + obj.getCompanyName() + " are " + obj.getTotalWages());
+	}
+
+	public int getTotalWages(CompanyEmpWage cew) {
+
+		int totalWages = cew.getTotalWages();
+		return totalWages;
 	}
 
 	public static void main(String args[]) {
@@ -60,6 +66,7 @@ public class EmpWageBuilder implements EmpWageInterface {
 			CompanyEmpWage obj2 = ewc.createObject(name, totalDays, totalHrs, perHrWage);
 			ewc.calculateWage(obj2);
 			ewc.arrayList.add(obj2);
+			System.out.println("The total wages of " + obj2.getCompanyName() + " are: " + ewc.getTotalWages(obj2));
 
 		}
 		sc.close();
