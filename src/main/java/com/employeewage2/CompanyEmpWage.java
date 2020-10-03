@@ -1,57 +1,68 @@
 package com.employeewage2;
 
 public class CompanyEmpWage {
-	private String company_name;
-	private int total_working_days;
-	private int total_working_hours;
-	private int perhour_wage;
-	private int total_wages = 0;
+	private String companyName;
+	private int totalWorkingDays;
+	private int totalWorkingHours;
+	private int perHourWage;
+	private int totalWages = 0;
+	private int dailyWage=0;
+
 	
-	public 	CompanyEmpWage(String company_name, int total_working_days, int total_working_hours, int perhour_wage) {
-		
-		this.company_name = company_name;
-		this.total_working_days = total_working_days;
-		this.total_working_hours = total_working_hours;
-		this.perhour_wage = perhour_wage;
+	public CompanyEmpWage(String company_name, int total_working_days, int total_working_hours, int perhour_wage) {
+
+		this.companyName = company_name;
+		this.totalWorkingDays = total_working_days;
+		this.totalWorkingHours = total_working_hours;
+		this.perHourWage = perhour_wage;
 	}
 
-	public String getCompany_name() {
-		return company_name;
-	}
-	
-	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
-	}
-	
-	public int getTotal_working_days() {
-		return total_working_days;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setTotal_working_days(int total_working_days) {
-		this.total_working_days = total_working_days;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
-	public int getTotal_working_hours() {
-		return total_working_hours;
+	public int getTotalWorkingDays() {
+		return totalWorkingDays;
 	}
 
-	public void setTotal_working_hours(int total_working_hours) {
-		this.total_working_hours = total_working_hours;
+	public void setTotalWorkingDays(int totalWorkingDays) {
+		this.totalWorkingDays = totalWorkingDays;
 	}
 
-	public int getPerhour_wage() {
-		return perhour_wage;
+	public int getTotalWorkingHours() {
+		return totalWorkingHours;
 	}
 
-	public void setPerhour_wage(int perhour_wage) {
-		this.perhour_wage = perhour_wage;
+	public void setTotalWorkingHours(int totalWorkingHours) {
+		this.totalWorkingHours = totalWorkingHours;
 	}
 
-	public int getTotal_wages() {
-		return total_wages;
+	public int getPerHourWage() {
+		return perHourWage;
 	}
 
-	public void setTotal_wages(int total_wages) {
-		this.total_wages = total_wages;
+	public void setPerHourWage(int perHourWage) {
+		this.perHourWage = perHourWage;
 	}
+
+	public int getTotalWages() {
+		return totalWages;
+	}
+
+	public void setTotalWages(int totalWages) {
+		this.totalWages = totalWages;
+	}
+	public int getDailyWage() {
+		return dailyWage;
+	}
+
+	public void setDailyWage(int dailyWage) {
+		this.dailyWage = dailyWage;
+	}
+
+
 }
